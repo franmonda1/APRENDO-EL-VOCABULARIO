@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aprendo a escribir el vocabulario</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for fallback while Escolar_N is not present -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="theme-uppercase">
+    <!-- Control Buttons -->
+    <div class="global-controls">
+        <button id="btn-fullscreen" class="control-btn" title="Pantalla Completa"><i class="fas fa-expand"></i></button>
+        <button id="btn-case" class="control-btn" title="Cambiar Mayúsculas/Minúsculas">Aa</button>
+        <button id="btn-back" class="control-btn hidden" title="Volver Atrás"><i class="fas fa-arrow-left"></i></button>
+        <button id="btn-home" class="control-btn hidden" title="Volver al Menú Principal"><i class="fas fa-home"></i></button>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app-container">
+        <!-- View: Main Menu -->
+        <div id="view-menu" class="view active">
+            <h1 class="main-title">Aprendo a Escribir</h1>
+            <p class="subtitle">Elige un grupo para jugar</p>
+            <div class="menu-grid" id="menu-grid"></div>
+        </div>
+
+        <!-- View: Sub Menu (Modes) -->
+        <div id="view-modes" class="view hidden">
+            <h1 class="main-title" id="mode-group-title">Grupo L</h1>
+            <p class="subtitle">Elige a qué quieres jugar</p>
+            <div class="mode-grid">
+                <button class="mode-btn mode-1" data-mode="1">
+                    <i class="fas fa-book-open"></i>
+                    <span>Modo Lectura</span>
+                </button>
+                <button class="mode-btn mode-2" data-mode="2">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <span>Ordenar Sílabas</span>
+                </button>
+                <button class="mode-btn mode-3" data-mode="3">
+                    <i class="fas fa-sort-alpha-down"></i>
+                    <span>Ordenar Letras</span>
+                </button>
+                <button class="mode-btn mode-4" data-mode="4">
+                    <i class="fas fa-keyboard"></i>
+                    <span>Escribir Palabras</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- View: Game -->
+        <div id="view-game" class="view hidden">
+            <div class="game-header">
+                <h2 id="game-title">Modo</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+            
+            <div class="game-content">
+                <div class="image-container">
+                    <img id="word-image" src="" alt="Palabra">
+                    <button id="btn-tts" class="tts-btn"><i class="fas fa-volume-up"></i></button>
+                </div>
+                
+                <div id="game-area" class="game-area">
+                    <!-- Dynamic content per mode will go here -->
+                </div>
+
+                <div id="game-controls" class="game-controls hidden">
+                    <button id="btn-check" class="action-btn btn-check"><i class="fas fa-check"></i> Comprobar</button>
+                    <button id="btn-next" class="action-btn btn-next hidden">Siguiente <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Screen -->
+        <div id="view-end" class="view hidden">
+            <div class="end-screen">
+                <i class="fas fa-star end-icon"></i>
+                <h1 class="end-title">¡Genial!</h1>
+                <p class="end-message">Has terminado todas las palabras.</p>
+                <button id="btn-restart" class="action-btn btn-next">Volver al Menú</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="vocabulary.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
